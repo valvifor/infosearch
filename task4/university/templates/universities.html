@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Университеты</title>
+</head>
+<body>
+    <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Полное название</label><br>
+            <input type="text" name="full_name" />
+        </p>
+        <p>
+            <label>Краткое название</label><br>
+            <input type="text" name="short_name" />
+        </p>
+        <p>
+            <label>Дата создания</label><br>
+            <input type="date" name="create_date" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+    {% if universities.count > 0 %}
+    <h2>Список университетов</h2>
+    <table>
+        <thead><th>Id</th><th>Полное название</th><th>Краткое название</th><th>Дата создания</th><th></th></thead>
+        {% for university in universities %}
+        <tr>
+            <td>{{ university.id }}</td>
+            <td>{{ university.full_name }}</td>
+            <td>{{ university.short_name }}</td>
+            <td>{{ university.create_date }}</td>
+            <td><a href="update/{{university.id}}">Изменить</a> | <a href="delete/{{university.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

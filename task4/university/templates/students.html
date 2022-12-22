@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Студенты</title>
+</head>
+<body>
+    <form method="POST" action="create/">
+        {% csrf_token %}
+{#        <p>#}
+{#            <label>ФИО</label><br>#}
+{#            <input type="text" name="full_name" />#}
+{#        </p>#}
+{#        <p>#}
+{#            <label>Дата рождения</label><br>#}
+{#            <input type="date" name="birth_date" />#}
+{#        </p>#}
+{#        <p>#}
+{#            <label>Университет</label><br>#}
+{#            <input type="" name="university" />#}
+{#        </p>#}
+{#        <p>#}
+{#            <label>Год поступления</label><br>#}
+{#            <input type="number" name="ent_year" />#}
+{#        </p>#}
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" value="Сохранить" >
+    </form>
+    {% if students.count > 0 %}
+    <h2>Список студентов</h2>
+    <table>
+        <thead><th>Id</th><th>ФИО</th><th>Дата рождения</th><th>Университет</th><th>Год поступления</th><th></th></thead>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.full_name }}</td>
+            <td>{{ student.birth_date }}</td>
+            <td>{{ student.university }}</td>
+            <td>{{ student.ent_year }}</td>
+            <td><a href="update/{{student.id}}">Изменить</a> | <a href="delete/{{student.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

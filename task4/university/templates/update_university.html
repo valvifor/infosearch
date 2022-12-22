@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Редактирование</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Полное название</label><br>
+            <input type="text" name="full_name" value="{{university.full_name}}" />
+        </p>
+        <p>
+            <label>Краткое название</label><br>
+            <input type="text" name="short_name" value="{{university.short_name}}" />
+        </p>
+        <p>
+            <label>Дата создания</label><br>
+            <input type="date" name="create_date" value="2022-12-01"/>
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>

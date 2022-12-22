@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Редактирование</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+{#        <p>#}
+{#            <label>ФИО</label><br>#}
+{#            <input type="text" name="full_name" value="{{student.full_name}}" />#}
+{#        </p>#}
+{#        <p>#}
+{#            <label>Дата рождения</label><br>#}
+{#            <input type="date" name="birth_date" value="{{student.birth_date}}" />#}
+{#        </p>#}
+{#        <p>#}
+{#            <label>Университет</label><br>#}
+{#            <input type="text" name="university" value="{{student.university}}"/>#}
+{#        </p>#}
+{#        <p>#}
+{#            <label>Год поступления</label><br>#}
+{#            <input type="number" name="ent_year" value="{{student.ent_year}}"/>#}
+{#        </p>#}
+        <table>{{ form }}</table>
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>
